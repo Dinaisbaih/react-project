@@ -1,8 +1,12 @@
-import './App.css'
-import Home from './components/Home';
+import "./App.css";
+import Home from "./components/Home";
+import ProductList from "./components/ProductList";
 function App() {
   return (
-    <Home />
+    <div>
+      <Home />
+      <ProductList />
+    </div>
   );
 }
 

@@ -1,11 +1,8 @@
-
-
-
-div{
- justify-content:center
+div {
+  justify-content: center;
 }
 
-img{
+img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -13,22 +10,20 @@ img{
   height: auto;
 }
 
-.text{
+.text {
   text-align: center;
 }
 
-.products{
-  display:flex;
-}
-  
-.product-image{
-  width: 50%;
-  height: 75%;
+.products {
+  display: flex;
 }
 
-.products-div{
+.product-image {
+  width: 40%;
+  height: 65%;
+}
+
+.products-div {
   justify-content: center;
- text-align: center;
-
- 
+  text-align: center;
 }
