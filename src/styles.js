@@ -10,9 +10,16 @@ body{
 }
 `;
 export const theme = {
-  mainColor: "#fff5eb",
-  backgroundColor: "#fff5eb",
-  textColor: "#ff7b54",
+  light: {
+    mainColor: "#fff5eb",
+    backgroundColor: "#fff5eb",
+    textColor: "#ff7b54",
+  },
+  dark: {
+    mainColor: "#1f6f8b",
+    backgroundColor: "#1c2b2d",
+    textColor: "#ff7b54",
+  },
 };
 
 export const List = styled.div`
@@ -41,7 +48,16 @@ export const MainDiv = styled.div`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
+    width: 30%;
     height: auto;
   }
+`;
+
+export const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: black;
 `;
