@@ -4,13 +4,24 @@ import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 import { theme, GlobalStyle, ThemeButton } from "./styles";
 import { useState } from "react";
+import ProductDetail from "./components/ProductDetail";
+import _products from "./products";
 
 function App() {
+  const [products, setProducts] = useState(_products);
+  const deleteProduct = (productId) => {
+    const filterdProduct = products.filter(
+      (product) => product.id !== productId
+    );
+    setProducts(filterdProduct);
+    setProduct(null);
+  };
+  const [product, setProduct] = useState(null);
   const savedTheme = localStorage.getItem("current");
-  console.log(savedTheme, "saved");
   const [currentTheme, setCurrentTheme] = useState(
     savedTheme === "dark" ? "dark" : "light"
   );
+
   const toggleCurrentTheme = () => {
     if (currentTheme === "light") {
       setCurrentTheme("dark");
@@ -20,7 +31,27 @@ function App() {
       localStorage.setItem("current", "light");
     }
   };
-  console.log(currentTheme);
+
+  const setView = () => {
+    if (product !== null) {
+      return (
+        <ProductDetail
+          deleteProduct={deleteProduct}
+          setProduct={setProduct}
+          product={product}
+        />
+      );
+    } else {
+      return (
+        <ProductList
+          setProduct={setProduct}
+          products={products}
+          deleteProduct={deleteProduct}
+        />
+      );
+    }
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
@@ -28,7 +59,7 @@ function App() {
         {currentTheme === "dark" ? "Light Theme" : "Dark Theme"}
       </ThemeButton>
       <Home />
-      <ProductList />
+      {setView()}
     </ThemeProvider>
   );
 }

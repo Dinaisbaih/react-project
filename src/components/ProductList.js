@@ -1,12 +1,29 @@
 import "../App.css";
+import { useState } from "react";
 import products from "../products";
 import ProductItem from "./ProductItem";
 import { List } from "../styles";
-const ProductList = () => {
-  const newArray = products.map((product) => (
-    <ProductItem product={product} key={product.id} />
-  ));
-  return <List>{newArray}</List>;
+import SearchBar from "./SearchBar";
+const ProductList = (props) => {
+  const [query, setQuery] = useState("");
+  const newArray = products
+    .filter((product) =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    )
+    .map((product) => (
+      <ProductItem
+        setProduct={props.setProduct}
+        product={product}
+        key={product.id}
+        deleteProduct={props.deleteProduct}
+      />
+    ));
+  return (
+    <div>
+      <SearchBar setQuery={setQuery} />
+      <List>{newArray}</List>;
+    </div>
+  );
 };
 
 export default ProductList;

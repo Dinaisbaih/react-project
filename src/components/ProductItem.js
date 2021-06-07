@@ -1,12 +1,17 @@
 import "../App.css";
 import { Item } from "../styles";
+import DeleteButton from "./buttons/DeleteButton";
 const ProductItem = (props) => {
-  console.log(props);
+  const product = props.product;
   return (
     <Item>
-      <img src={props.product.imageUrl} />
+      <img onClick={() => props.setProduct(product)} src={product.imageUrl} />
       <p> Name: {props.product.name}</p>
       <p>Price: {props.product.price}</p>
+      <DeleteButton
+        deleteProduct={props.deleteProduct}
+        productId={props.product.id}
+      />
     </Item>
   );
 };

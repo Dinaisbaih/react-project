@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-
 export const GlobalStyle = createGlobalStyle`
-
 h1{
    font-family:cursive;
 }
@@ -48,8 +46,9 @@ export const MainDiv = styled.div`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    width: 42%;
     height: auto;
+    border-radius: 5%;
   }
 `;
 
@@ -59,5 +58,31 @@ export const ThemeButton = styled.button`
   padding: 0.25em 1em;
   border-radius: 3px;
   background-color: ${(props) => props.theme.mainColor};
+  color: black;
+`;
+export const SearchBarStyled = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;
+export const DetailWrapper = styled.div`
+  background-color: #d5dbb3;
+  border-radius: 3%;
+  img {
+    width: 35%;
+  }
+  height: 400px;
+  width: 25%;
+  align-items: center;
+  display: flex;
+  /* justify-items: center; */
+  flex-direction: column;
+`;
+export const DeleteButtonStyled = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
   color: black;
 `;
