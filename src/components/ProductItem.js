@@ -1,13 +1,18 @@
-import "../App.css";
+import { Link } from "react-router-dom";
+
 import { Item } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 const ProductItem = (props) => {
   const product = props.product;
+  console.log(product);
+
   return (
     <Item>
-      <img onClick={() => props.setProduct(product)} src={product.imageUrl} />
-      <p> Name: {props.product.name}</p>
-      <p>Price: {props.product.price}</p>
+      <Link to={`/products/${product.slug}`}>
+        <img src={product.imageUrl} />
+      </Link>
+      <p> Name: {product.name}</p>
+      <p>Price: {product.price}</p>
       <DeleteButton
         deleteProduct={props.deleteProduct}
         productId={props.product.id}

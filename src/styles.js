@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 h1{
@@ -80,9 +81,29 @@ export const DetailWrapper = styled.div`
   flex-direction: column;
 `;
 export const DeleteButtonStyled = styled.button`
-  font-size: 1em;
-  margin: 1.25em;
-  padding: 0.25em 1em;
   border-radius: 3px;
   color: black;
+  width: 35px;
+  height: 30px;
+`;
+
+export const NavProduct = styled(NavLink)`
+  &.active {
+    color: blue;
+    font-weight: bold;
+  }
+
+  align-items: center;
+  display: flex;
+  height: 50px;
+  background-color: aqua;
+  padding: 5px;
+`;
+export const Logo = styled(Link)`
+  img {
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+  }
+  padding: 5px;
 `;

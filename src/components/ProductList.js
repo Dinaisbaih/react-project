@@ -4,7 +4,7 @@ import products from "../products";
 import ProductItem from "./ProductItem";
 import { List } from "../styles";
 import SearchBar from "./SearchBar";
-const ProductList = (props) => {
+const ProductList = () => {
   const [query, setQuery] = useState("");
   const newArray = products
     .filter((product) =>
@@ -12,10 +12,10 @@ const ProductList = (props) => {
     )
     .map((product) => (
       <ProductItem
-        setProduct={props.setProduct}
+        // setProduct={props.setProduct}
         product={product}
         key={product.id}
-        deleteProduct={props.deleteProduct}
+        // deleteProduct={props.deleteProduct}
       />
     ));
   return (

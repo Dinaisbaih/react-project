@@ -1,11 +1,12 @@
 import { DeleteButtonStyled } from "../../styles";
 import { FaTrash } from "react-icons/fa";
 const DeleteButton = (props) => {
-  const handleDelete = (productId) => {
-    props.deleteProduct(productId);
-  };
+  console.log(props);
+  // const handleDelete = (productId) => {
+  //   props.deleteProduct(productId);
+  // };
   return (
-    <DeleteButtonStyled onClick={() => handleDelete(props.productId)}>
+    <DeleteButtonStyled onClick={() => props.deleteProduct(props.productId)}>
       <FaTrash />
     </DeleteButtonStyled>
   );
