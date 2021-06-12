@@ -1,12 +1,16 @@
 import { DeleteButtonStyled } from "../../styles";
 import { FaTrash } from "react-icons/fa";
+import { deleteProduct } from "../../store/actions";
+import { useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 const DeleteButton = (props) => {
-  console.log(props);
-  // const handleDelete = (productId) => {
-  //   props.deleteProduct(productId);
-  // };
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(deleteProduct(props.productId));
+  };
   return (
-    <DeleteButtonStyled onClick={() => props.deleteProduct(props.productId)}>
+    <DeleteButtonStyled onClick={handleDelete}>
       <FaTrash />
     </DeleteButtonStyled>
   );

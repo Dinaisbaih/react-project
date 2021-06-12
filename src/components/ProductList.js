@@ -1,21 +1,21 @@
-import "../App.css";
 import { useState } from "react";
-import products from "../products";
 import ProductItem from "./ProductItem";
 import { List } from "../styles";
 import SearchBar from "./SearchBar";
-const ProductList = () => {
+import { useSelector } from "react-redux";
+const ProductList = (props) => {
   const [query, setQuery] = useState("");
+  const products = useSelector((state) => state.products);
   const newArray = products
     .filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())
     )
     .map((product) => (
       <ProductItem
-        // setProduct={props.setProduct}
+        setProducts={props.setProducts}
         product={product}
         key={product.id}
-        // deleteProduct={props.deleteProduct}
+        deleteProduct={props.deleteProduct}
       />
     ));
   return (

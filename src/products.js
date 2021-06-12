@@ -1,30 +1,30 @@
 const products = [
   {
     id: 1,
-    name: "Iphone-11",
-    slug: "iphone-11",
+    name: "Dinning Balck Table",
+    slug: "dinning-black-table",
     imageUrl:
-      "https://cdn.shopify.com/s/files/1/0409/7245/products/blue_1_a87abd41-5a11-4b8d-99a7-92abfb45994c_1024x1024.png?v=1603814055",
-    price: 500,
-    description: "im iphone 11",
+      "https://diyalightingstudio.com/wp-content/uploads/2020/02/21-4.png",
+    price: 1000,
+    description: "Epoxy resin table",
   },
   {
     id: 2,
-    name: "Iphone-12",
-    slug: "iphone-12",
+    name: "Coffe Table",
+    slug: "coffe-table",
     imageUrl:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-    price: 800,
-    description: "im iphone 12",
+      "https://diyalightingstudio.com/wp-content/uploads/2020/01/2-3.png",
+    price: 600,
+    description: "Ruby Red Resin Rable",
   },
   {
     id: 3,
-    name: "Iphone-12",
-    slug: "iphone-12",
+    name: "Dinning Blue Table",
+    slug: "dinning-blue-table",
     imageUrl:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-    price: 800,
-    description: "im iphone 12",
+      "https://diyalightingstudio.com/wp-content/uploads/2020/02/17-2.png",
+    price: 950,
+    description: "Rustic Charm",
   },
 ];
 export default products;

@@ -4,7 +4,6 @@ import { Item } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 const ProductItem = (props) => {
   const product = props.product;
-  console.log(product);
 
   return (
     <Item>
@@ -13,10 +12,7 @@ const ProductItem = (props) => {
       </Link>
       <p> Name: {product.name}</p>
       <p>Price: {product.price}</p>
-      <DeleteButton
-        deleteProduct={props.deleteProduct}
-        productId={props.product.id}
-      />
+      <DeleteButton productId={props.product.id} />
     </Item>
   );
 };

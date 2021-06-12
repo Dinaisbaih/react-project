@@ -1,15 +1,21 @@
 import Home from "./components/Home";
 import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyle, ThemeButton, NavProduct, Logo } from "./styles";
+import {
+  theme,
+  GlobalStyle,
+  ThemeButton,
+  NavProduct,
+  Logo,
+  BarDiv,
+} from "./styles";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
 import _products from "./products";
-import { BrowserRouter, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { Route, Switch } from "react-router";
 
 function App() {
-  // const [product, setProduct] = useState(null);
   const savedTheme = localStorage.getItem("current");
   const [currentTheme, setCurrentTheme] = useState(
     savedTheme === "dark" ? "dark" : "light"
@@ -30,23 +36,26 @@ function App() {
       <ThemeProvider theme={theme[currentTheme]}>
         <GlobalStyle />
 
-        <NavProduct to="/products">
+        <NavProduct>
           <Logo to="/">
-            <img src="https://i.pinimg.com/originals/1f/6c/a6/1f6ca6be3342d2dab602bdfcc52588f0.png" />
+            <img src="https://img.icons8.com/ios/452/table.png" />
           </Logo>
-          Products
+          <BarDiv>
+            <Link to="/products">
+              <ThemeButton>Tables</ThemeButton>
+            </Link>
+            <ThemeButton onClick={toggleCurrentTheme}>
+              {currentTheme === "dark" ? "Light Theme" : "Dark Theme"}
+            </ThemeButton>
+          </BarDiv>
         </NavProduct>
-
-        <ThemeButton onClick={toggleCurrentTheme}>
-          {currentTheme === "dark" ? "Light Theme" : "Dark Theme"}
-        </ThemeButton>
 
         <Switch>
           <Route path="/products/:productSlug">
-            <ProductDetail products={_products} />
+            <ProductDetail />
           </Route>
           <Route path="/products">
-            <ProductList products={_products} />
+            <ProductList />
           </Route>
           <Route exact path="/">
             <Home />
