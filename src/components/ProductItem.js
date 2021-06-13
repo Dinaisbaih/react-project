@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
+import { FaBeer } from "react-icons/fa";
 
-import { Item } from "../styles";
+import { Item, UpdateButtonStyled } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 const ProductItem = (props) => {
   const product = props.product;
 
   return (
     <Item>
+      <Link to={`/products/${product.slug}/edit`}>
+        <UpdateButtonStyled />
+      </Link>
       <Link to={`/products/${product.slug}`}>
         <img src={product.imageUrl} />
       </Link>

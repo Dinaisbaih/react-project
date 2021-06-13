@@ -11,6 +11,7 @@ import {
 } from "./styles";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
+import FormProduct from "./components/FormProduct";
 import _products from "./products";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Route, Switch } from "react-router";
@@ -51,9 +52,15 @@ function App() {
         </NavProduct>
 
         <Switch>
+          <Route
+            path={["/products/FormProduct", "/products/:productSlug/edit"]}
+          >
+            <FormProduct />
+          </Route>
           <Route path="/products/:productSlug">
             <ProductDetail />
           </Route>
+
           <Route path="/products">
             <ProductList />
           </Route>

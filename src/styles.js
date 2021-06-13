@@ -16,8 +16,8 @@ export const theme = {
   },
   dark: {
     mainColor: "#839b97",
-    backgroundColor: "#34626c",
-    textColor: "#ff7b54",
+    backgroundColor: "#393e46",
+    textColor: "white",
   },
 };
 
@@ -31,24 +31,30 @@ export const Item = styled.div`
   text-align: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
+
   img {
     width: 50%;
     height: 80%;
     align-self: center;
     border-radius: 5%;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 `;
 export const MainDiv = styled.div`
   margin-top: 8%;
   h1 {
+    font-family: Times, "Times New Roman", serif;
     text-align: center;
     color: black;
+    font-size: 70px;
   }
   h2 {
+    font-family: Times, "Times New Roman", serif;
     text-align: center;
     color: black;
+    font-size: 30px;
+    margin-top: 2px;
   }
   img {
     display: block;
@@ -75,7 +81,7 @@ export const SearchBarStyled = styled.input`
   margin: 1rem auto;
   display: block;
   width: 40%;
-  margin-top: 10%;
+  margin-top: 7%;
 `;
 export const DetailDiv = styled.div`
   justify-content: center;
@@ -84,18 +90,20 @@ export const DetailDiv = styled.div`
 `;
 
 export const DetailWrapper = styled.div`
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 3%;
   margin-top: 4%;
-
+  border: solid;
+  border-color: gray;
   height: 400px;
   width: 25%;
   align-items: center;
   display: flex;
   flex-direction: column;
   align-self: center;
+
   img {
-    width: 35%;
+    width: 55%;
   }
 `;
 export const DeleteButtonStyled = styled.button`
@@ -103,7 +111,7 @@ export const DeleteButtonStyled = styled.button`
   color: black;
   width: 35px;
   height: 30px;
-  margin-top: 25px;
+  margin-top: 15px;
 `;
 
 export const NavProduct = styled.div`
@@ -117,10 +125,6 @@ export const NavProduct = styled.div`
   background-color: #94b4a4;
   padding: 5px;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
 `;
 export const Logo = styled(Link)`
   img {
@@ -133,3 +137,15 @@ export const Logo = styled(Link)`
 export const BarDiv = styled.div`
   display: flex;
 `;
+export const AddTableDiv = styled.div`
+  height: 500px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+export const FormInput = styled.input`
+  width: 200px;
+`;
+
+export const UpdateButtonStyled = styled.button``;

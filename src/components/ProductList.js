@@ -1,8 +1,9 @@
 import { useState } from "react";
 import ProductItem from "./ProductItem";
-import { List } from "../styles";
+import { FormButton, List } from "../styles";
 import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const ProductList = (props) => {
   const [query, setQuery] = useState("");
   const products = useSelector((state) => state.products);
@@ -20,8 +21,11 @@ const ProductList = (props) => {
     ));
   return (
     <div>
+      <Link to="/products/FormProduct">
+        <button>Add New</button>
+      </Link>
       <SearchBar setQuery={setQuery} />
-      <List>{newArray}</List>;
+      <List>{newArray}</List>
     </div>
   );
 };
