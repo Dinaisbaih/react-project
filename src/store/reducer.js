@@ -1,7 +1,7 @@
 import slugify from "slugify";
 import products from "../products";
 import productsData from "../products";
-import { CREATE_PRODUCT, DELETE_PRODUCT } from "./actions";
+import { CREATE_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } from "./actions";
 
 const initialState = {
   products: productsData,
@@ -25,6 +25,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: [...state.products, action.payload.newProduct],
+      };
+    case UPDATE_PRODUCT:
+      const { updateProduct } = action.payload;
+      return {
+        ...state,
+        products: state.products.map((product) =>
+          product.id === updateProduct.id ? updateProduct : product
+        ),
       };
     default:
       return state;

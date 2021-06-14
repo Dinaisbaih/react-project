@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 import { AddTableDiv, FormInput } from "../styles";
 import { createProduct } from "../store/actions";
 import { useHistory, useParams } from "react-router";
 
 const FormProduct = () => {
+  const { productSlug } = useParams();
   const products = useSelector((state) => state.products);
   const foundProduct = products.find((p) => p.slug === productSlug);
   const [product, setProduct] = useState(
@@ -15,7 +16,6 @@ const FormProduct = () => {
       description: "",
     }
   );
-  const { productSlug } = useParams();
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -35,7 +35,7 @@ const FormProduct = () => {
   return (
     <form onSubmit={handleSubmit}>
       <AddTableDiv>
-        <title>{}</title>
+        <h1>{foundProduct ? "Update Product" : "New Product"}</h1>
         <FormInput
           onChange={handleChange}
           type="text"
@@ -60,7 +60,7 @@ const FormProduct = () => {
           name="description"
           placeholder="enter table description"
         />
-        <button type="submit">Submit</button>
+        <button type="submit">{foundProduct ? "Update" : "create"}</button>
       </AddTableDiv>
     </form>
   );
