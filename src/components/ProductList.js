@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const ProductList = (props) => {
   const [query, setQuery] = useState("");
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products.products);
   const newArray = products
     .filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())

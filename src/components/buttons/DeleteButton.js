@@ -1,6 +1,6 @@
 import { DeleteButtonStyled } from "../../styles";
 import { FaTrash } from "react-icons/fa";
-import { deleteProduct } from "../../store/actions";
+import { deleteProduct } from "../../store/actions/productActions";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 

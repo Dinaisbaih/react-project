@@ -4,15 +4,21 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import BrowserRouter from "react-router-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./store/reducer";
+import thunk from "redux-thunk";
+import rootReducer from "./store/reducers/rootReducer";
+import { fetchProducts } from "./store/actions/productActions";
+import { fetchShops } from "./store/actions/shopActions";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
 );
-
+store.dispatch(fetchProducts());
+store.dispatch(fetchShops());
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

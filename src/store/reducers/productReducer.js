@@ -1,15 +1,14 @@
 import slugify from "slugify";
-import products from "../products";
-import productsData from "../products";
-import { CREATE_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } from "./actions";
+import * as actionTypes from "../actions/types";
 
 const initialState = {
-  products: productsData,
+  products: [],
+  // loading: true,
 };
 
-const reducer = (state = initialState, action) => {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case DELETE_PRODUCT:
+    case actionTypes.DELETE_PRODUCT:
       console.log(action);
       return {
         ...state,
@@ -17,16 +16,14 @@ const reducer = (state = initialState, action) => {
           return product.id !== action.payload.productId;
         }),
       };
-    case CREATE_PRODUCT:
+    case actionTypes.CREATE_PRODUCT:
       const { newProduct } = action.payload;
-      newProduct.id = state.products[state.products.length - 1].id + 1;
-      newProduct.slug = slugify(newProduct.name);
-
+      newProduct.slug = slugify(newProduct.name.toLowerCase());
       return {
         ...state,
         products: [...state.products, action.payload.newProduct],
       };
-    case UPDATE_PRODUCT:
+    case actionTypes.UPDATE_PRODUCT:
       const { updateProduct } = action.payload;
       return {
         ...state,
@@ -34,9 +31,15 @@ const reducer = (state = initialState, action) => {
           product.id === updateProduct.id ? updateProduct : product
         ),
       };
+    case actionTypes.FETCH_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+        // loading: false,
+      };
     default:
       return state;
   }
 };
 
-export default reducer;
+export default productReducer;

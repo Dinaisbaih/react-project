@@ -149,3 +149,8 @@ export const FormInput = styled.input`
 `;
 
 export const UpdateButtonStyled = styled.button``;
+
+export const ShopItemImage = styled.image`
+  width: 20em;
+`;
+export const NavItem = styled.nav``;

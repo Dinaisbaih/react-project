@@ -1,5 +1,3 @@
-import Home from "./components/Home";
-import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 import {
   theme,
@@ -8,15 +6,19 @@ import {
   NavProduct,
   Logo,
   BarDiv,
+  NavItem,
 } from "./styles";
 import { useState } from "react";
-import ProductDetail from "./components/ProductDetail";
-import FormProduct from "./components/FormProduct";
+import Routes from "./components/Routes";
 import _products from "./products";
 import { BrowserRouter, Link } from "react-router-dom";
-import { Route, Switch } from "react-router";
+import { useSelector } from "react-redux";
+import SignupButton from "./components/buttons/SignupButton ";
 
 function App() {
+  const products = useSelector((state) => state.products.products);
+  const loading = useSelector((state) => state.products.loading);
+
   const savedTheme = localStorage.getItem("current");
   const [currentTheme, setCurrentTheme] = useState(
     savedTheme === "dark" ? "dark" : "light"
@@ -42,32 +44,22 @@ function App() {
             <img src="https://img.icons8.com/ios/452/table.png" />
           </Logo>
           <BarDiv>
+            <NavItem to="/shops">Shops</NavItem>
             <Link to="/products">
               <ThemeButton>Tables</ThemeButton>
             </Link>
             <ThemeButton onClick={toggleCurrentTheme}>
               {currentTheme === "dark" ? "Light Theme" : "Dark Theme"}
             </ThemeButton>
+            <SignupButton />
           </BarDiv>
         </NavProduct>
 
-        <Switch>
-          <Route
-            path={["/products/FormProduct", "/products/:productSlug/edit"]}
-          >
-            <FormProduct />
-          </Route>
-          <Route path="/products/:productSlug">
-            <ProductDetail />
-          </Route>
-
-          <Route path="/products">
-            <ProductList />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+        {/* { {loadingProducts || loadingShop ? ( } */}
+        {/* { <h3>Loading...</h3> } */}
+        {/* { ) : ( */}
+        <Routes products={products} />
+        {/* )} } */}
       </ThemeProvider>
     </BrowserRouter>
   );

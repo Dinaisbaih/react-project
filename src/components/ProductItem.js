@@ -8,9 +8,9 @@ const ProductItem = (props) => {
 
   return (
     <Item>
-      <Link to={`/products/${product.slug}/edit`}>
+      {/* <Link to={`/products/${product.slug}/edit`}>
         <UpdateButtonStyled />
-      </Link>
+      </Link> */}
       <Link to={`/products/${product.slug}`}>
         <img src={product.imageUrl} />
       </Link>
